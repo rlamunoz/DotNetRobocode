@@ -1,5 +1,4 @@
 ﻿using Robocode;
-using System;
 using System.Drawing;
 
 namespace Ronny.Robots
