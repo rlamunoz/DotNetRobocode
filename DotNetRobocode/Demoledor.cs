@@ -79,9 +79,9 @@ namespace Ronny.Robots
             {
                 Fire(1);
                 SetAhead(100);
-                Fire(Rules.MIN_BULLET_POWER);
+                Fire(Rules.MAX_BULLET_POWER);
                 SetAhead(100);
-                Fire(Rules.MIN_BULLET_POWER);
+                Fire(Rules.MAX_BULLET_POWER);
             }
 
             if (e.Energy > 50 && Energy < 50)
@@ -98,7 +98,10 @@ namespace Ronny.Robots
             }
             if (e.IsMyFault)
             {
-                TurnRight(10);
+                MaxVelocity = 8;
+                TurnRight(100);
+                WaitFor(new TurnCompleteCondition(this));
+                SetAhead(100);
             }
             if (e.Energy < 50 && Energy > 50)
             {
